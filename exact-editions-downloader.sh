@@ -65,4 +65,11 @@ do
 
     # Convert to single PDF file
     pdfunite $(find "${spread_directory}" -mindepth 1 | sort --field-separator=/ --key=4 --numeric-sort) "${issue_pdf_path}"
+
+    # Clean up single issue
+    rm --force --recursive "${issue_path}"
 done 3< <(grep 'href="/issues/[^/"]\+' "${issues_file}")
+
+# Clean up all issues
+rmdir issues
+rm --force "${issues_file}"
