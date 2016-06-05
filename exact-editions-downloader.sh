@@ -18,6 +18,10 @@ magazine="$1"
 username="$2"
 password="$3"
 
+base_directory="$magazine"
+mkdir --parents "$base_directory"
+cd "$base_directory"
+
 # Log in
 trap 'rm --force --recursive cookies.txt' EXIT
 cookie_file="cookies.txt"
