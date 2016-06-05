@@ -23,7 +23,7 @@ mkdir --parents "$base_directory"
 cd "$base_directory"
 
 # Log in
-trap 'rm --force --recursive cookies.txt' EXIT
+trap 'rm --force "$cookie_file"' EXIT
 cookie_file="cookies.txt"
 wget --keep-session-cookies --output-document=/dev/null --post-data="username=${username}&password=${password}" --save-cookies="${cookie_file}" 'https://login.exacteditions.com/login'
 
